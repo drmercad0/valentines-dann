@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<!-- REQUIRED FOR MOBILE + MODERN BROWSERS -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<meta name="description" content="Valentine Interactive Card">
+<meta name="author" content="DannMart">
+
+<!-- SOCIAL SHARE PREVIEW -->
+<meta property="og:title" content="Valentine Card 💙">
+<meta property="og:description" content="Interactive Valentine Envelope">
+<meta property="og:type" content="website">
+
+<title>Valentine Card 💙</title>
+
+<!-- OPTIONAL FAVICON (you can add later) -->
+<!-- <link rel="icon" href="favicon.ico"> -->
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Crimson Text', serif;
+  overflow: hidden;
+}
+
+.handwritten { font-family: 'Dancing Script', cursive; }
+.perspective { perspective: 1500px; }
+
+.heart {
+  position: fixed;
+  top: -20px;
+  font-size: 20px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="relative w-full max-w-[480px] aspect-[16/11] group perspective">
+
+<div class="absolute inset-x-0 mx-auto w-[92%] h-[95%] bg-[#f8fbff] shadow-2xl border border-blue-200 p-8 
+            transition-all duration-700 ease-in-out z-0
+            group-hover:-translate-y-52 group-hover:z-50">
+
+    <div class="h-full border border-blue-100 p-5 flex flex-col justify-between relative">
+        
+        <div class="flex justify-between items-start">
+            <div class="space-y-2">
+                <h2 class="handwritten text-3xl text-blue-900">Dear Yumi Lim,</h2>
+                <p class="text-sm italic text-blue-700 max-w-[220px] leading-relaxed">
+                    "You and I inhabit different worlds, and this makes our love more special."
+                </p>
+            </div>
+
+            <div class="w-14 h-20 border border-dotted border-blue-300 bg-blue-50 flex flex-col items-center justify-center p-1">
+                 <div class="text-[8px] uppercase tracking-widest text-blue-400">Post</div>
+                 <div class="w-full h-full bg-center bg-cover"
+                 style="background-image: url('https://i.pinimg.com/736x/22/72/1b/22721b77401267d3f4a5606d8e717d7b.jpg')"></div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <p class="text-xl font-bold text-blue-900 italic uppercase tracking-[0.15em]">
+                Be my Valentine?
+            </p>
+
+            <button 
+              onclick="startHearts()"
+              class="mt-4 px-6 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-lg shadow">
+              Yes 💙
+            </button>
+        </div>
+
+        <div class="flex justify-between items-end border-t border-blue-100 pt-4">
+            <div class="text-[9px] text-blue-800/60 uppercase tracking-widest italic leading-tight max-w-[140px]">
+                My heart silently seeks you out.
+            </div>
+
+            <div class="text-right">
+                <p class="text-[10px] text-blue-400 uppercase tracking-widest">Always,</p>
+                <p class="handwritten text-2xl text-blue-900">Your Admirer, Dann Mercado</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="absolute inset-0 bg-white border border-blue-200 shadow-xl z-100 overflow-hidden">
+    <div class="absolute inset-0 z-20"
+    style="background: linear-gradient(35deg, #ffffff 50%, #eff6ff 50.1%);"></div>
+    
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+        <div class="w-14 h-14 bg-blue-700 rounded-full shadow-lg border border-blue-900 flex items-center justify-center">
+            <span class="text-blue-200 text-lg">❤</span>
+        </div>
+    </div>
+
+    <div class="absolute bottom-8 w-full text-center z-40">
+        <p class="text-blue-900 font-bold uppercase tracking-[0.4em] text-[11px]">YOU AND I</p>
+    </div>
+</div>
+
+<div class="absolute top-0 left-0 w-full h-1/2 bg-blue-100 origin-top transition-transform duration-500 ease-in-out 
+            group-hover:[transform:rotateX(180deg)] z-30 shadow-sm"
+     style="clip-path: polygon(0 0, 50% 100%, 100% 0);">
+</div>
+
+</div>
+
+<script>
+function startHearts() {
+  for (let i = 0; i < 40; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💙";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }
+}
+</script>
+
+</body>
+</html>
